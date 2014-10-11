@@ -1,0 +1,4 @@
+kort_s_trip:
+    resource: "@KortSTripBundle/Resources/config/routing.yml"
+    prefix:   /
+
