@@ -1,3 +1,23 @@
-kort_s_trip_homepage:
+sk_trip_homepage:
     path:     /hello/{name}
     defaults: { _controller: KortSTripBundle:Default:index }
+
+sk_trip_list:
+    path:     /airport/list
+    defaults: { _controller: KortSTripBundle:Airport:list, _format: json}
+
+sk_trip_flights:
+    path:     /trip/flights/{tripId}
+    defaults: { _controller: KortSTripBundle:Trip:flights, _format: json }
+
+sk_trip_add_flight:
+    path:     /trip/addFlight/{departureAirportId}/{arrivalAirportId}
+    defaults: { _controller: KortSTripBundle:Trip:addFlight, _format: json }
+
+sk_trip_remove_flight:
+    path:     /trip/removeFlight/{flightId}
+    defaults: { _controller: KortSTripBundle:Trip:removeFlight, _format: json }
+
+sk_trip_rename:
+    path:     /trip/rename/{tripId}
+    defaults: { _controller: KortSTripBundle:Trip:rename, _format: json }

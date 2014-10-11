@@ -15,6 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Airport
 {
+
     /**
      * @var integer
      *
@@ -32,7 +33,6 @@ class Airport
      * @ORM\Column(name="iata_code", type="string", length=3)
      */
     private $iataCode;
-    
 
     /**
      * Airport's full name.
@@ -42,7 +42,7 @@ class Airport
      * @ORM\Column(name="name", type="string", length=128)
      */
     private $name;
-    
+
     /**
      *
      * @var KortS\TripBundle\Entity\City
@@ -51,7 +51,7 @@ class Airport
      */
     private $city;
 
-     /**
+    /**
      * Get id
      *
      * @return integer 
@@ -83,7 +83,7 @@ class Airport
     {
         return $this->iataCode;
     }
-    
+
     /**
      * Set name
      *
@@ -106,8 +106,8 @@ class Airport
     {
         return $this->name;
     }
-    
-     /**
+
+    /**
      * Set city
      *
      * @param City $city
@@ -128,5 +128,18 @@ class Airport
     public function getCity()
     {
         return $this->city;
+    }
+
+    /**
+     * Converts an airport to an associative array.
+     */
+    public function toArray()
+    {
+        return array(
+            'id'   => $this->getId(),
+            'name' => $this->getName(),
+            'code' => $this->getIataCode(),
+            'city' => $this->getCity()->getName()
+        );
     }
 }
