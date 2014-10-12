@@ -71,10 +71,10 @@ class AirportController extends BaseController
         $parameter = $this->getRequest()->get($key, null);
         
          if ($parameter != null && ctype_digit($parameter) == false) {
-            throw \InvalidArgumentException(sprintf('Parameter "%s" must be a non negative integer', $key));
+            throw new \InvalidArgumentException(sprintf('Parameter %s must be a non negative integer', $key));
         }
         
-        return (int)$parameter;
+        return is_null($parameter) ? $parameter : (int)$parameter;
     }
 
 
@@ -98,11 +98,11 @@ class AirportController extends BaseController
     private function listActionResponse()
     {
         $response = array('status' => 'OK');
-        if ($this->parameters['offset'] != null) {
+        if ($this->parameters['offset'] !== null) {
             $response['start'] = $this->parameters['offset'];
         }
         
-        if ($this->parameters['limit'] != null) {
+        if ($this->parameters['limit'] !== null) {
             $response['count'] = $this->parameters['limit'];
         }
         
