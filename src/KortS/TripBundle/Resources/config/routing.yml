@@ -11,13 +11,13 @@ sk_trip_flights:
     defaults: { _controller: KortSTripBundle:Trip:flights, _format: json }
 
 sk_trip_add_flight:
-    path:     /trip/addFlight/{departureAirportId}/{arrivalAirportId}
+    path:     /trip/addFlight/{tripId}/d/{departureAirportId}/a/{arrivalAirportId}
     defaults: { _controller: KortSTripBundle:Trip:addFlight, _format: json }
 
 sk_trip_remove_flight:
-    path:     /trip/removeFlight/{flightId}
+    path:     /trip/removeFlight/{tripId}/f/{flightId}
     defaults: { _controller: KortSTripBundle:Trip:removeFlight, _format: json }
 
 sk_trip_rename:
-    path:     /trip/rename/{tripId}
+    path:     /trip/rename/{tripId}/n/{name}
     defaults: { _controller: KortSTripBundle:Trip:rename, _format: json }
