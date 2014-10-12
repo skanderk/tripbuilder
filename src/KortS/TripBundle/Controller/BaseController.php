@@ -25,4 +25,18 @@ class BaseController extends Controller
         
         return new JsonResponse($response);
     }
+    
+    /**
+     * Checks if $value is a positive integer.
+     * 
+     * @param integer $value
+     * @param string $name
+     * @throws \InvalidArgumenException
+     */
+    protected function assertIsPositiveInteger($value, $name)
+    {
+        if (false == ctype_digit($value) || $value == 0) {
+            throw new \InvalidArgumenException(sprintf("%s has to be a positive integer", $name));
+        }
+    }
 }
