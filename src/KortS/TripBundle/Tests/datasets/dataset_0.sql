@@ -41,3 +41,22 @@ INSERT INTO city (`name`, `country`) VALUES
     (5, 'CDG', 'Charles De Gaulle'),
     (5, 'ORY', 'Orly')
 ;
+
+----------------------------------------------------------
+-- Trips
+----------------------------------------------------------
+INSERT INTO trip (`name`) VALUES (
+    'Vacation in Paris', 
+    'Trip to the Valley'
+);
+
+----------------------------------------------------------
+-- Flights
+----------------------------------------------------------
+INSERT INTO flight (`departure_airport_id`, `arrival_airport_id`) VALUES 
+    (1, 4), -- YUL to JFK
+    (4, 6), -- JFK to CDG
+    (6, 1), -- CDG to YUL
+    (2,8),  -- YYZ to SOF 
+    (8,2)   -- SOF to YYZ
+;
