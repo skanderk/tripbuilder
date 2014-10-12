@@ -97,4 +97,17 @@ class Flight
     {
         return $this->arrivalAirport;
     }
+    
+    /**
+     * Converts a flights to an array.
+     * 
+     * @return array
+     */
+    public function toArray()
+    {
+        return array(
+            'departureAirport'  => $this->getDepartureAirport()->toArray(),
+            'arrivalAirport'    => $this->getArrivalAirport()->toArray()
+        );
+    }
 }
