@@ -106,6 +106,7 @@ class Flight
     public function toArray()
     {
         return array(
+            'id'                => $this->getId(),
             'departureAirport'  => $this->getDepartureAirport()->toArray(),
             'arrivalAirport'    => $this->getArrivalAirport()->toArray()
         );
