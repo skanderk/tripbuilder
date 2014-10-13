@@ -2,9 +2,11 @@
 
 namespace KortS\TripBundle\Controller;
 
-use \Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+/**
+ * Provides trip management methods.
+ */
 class TripController extends BaseController
 {
     
@@ -49,11 +51,11 @@ class TripController extends BaseController
      * Builds flightsAction() JSON response.
      * 
      * @param integer $tripId
-     * @param \Doctrine\Common\Collections\ArrayCollection
+     * @param Doctrine\ORM\PersistentCollection $flights
      * @return \Symfony\Component\HttpFoundation\JsonResponse;
      * 
      */
-    private function flightsActionResponse($tripId, ArrayCollection $flights)
+    private function flightsActionResponse($tripId, $flights)
     {
         $response = array(
             'status'  => 'OK',
@@ -88,7 +90,7 @@ class TripController extends BaseController
             $trip->addFlight($newFlight);
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->addFlightResponse($tripId, $departureAirportId, $arrivalAirportId);
+            return $this->addFlightResponse($tripId, $newFlight->getId(), $departureAirportId, $arrivalAirportId);
         } catch (\Exception $e) {
             return $this->buildErrorResponse($e);
         }
@@ -127,15 +129,17 @@ class TripController extends BaseController
     /**
      * 
      * @param integer $tripId
+     * @param integer $flightId
      * @param integer $departureAirportId
      * @param integer $arrivalAirportId
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    private function addFlightResponse($tripId, $departureAirportId, $arrivalAirportId)
+    private function addFlightResponse($tripId, $flightId, $departureAirportId, $arrivalAirportId)
     {
         $response = array(
             'status'             => 'OK',
             'tripId'             => $tripId,
+            'flightId'           => $flightId,
             'departureAirportId' => $departureAirportId,
             'arrivalAirportId'   => $arrivalAirportId
         );
