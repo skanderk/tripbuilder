@@ -218,7 +218,7 @@ class TripController extends BaseController
         try {
             $this->assertIsPositiveInteger($tripId, 'Trip Id');
             $this->assertIsValidTripName($name);
-            $this->findTrip($tripId)->setName();
+            $this->findTrip($tripId)->setName($name);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->renameActionResponse($tripId, $name);

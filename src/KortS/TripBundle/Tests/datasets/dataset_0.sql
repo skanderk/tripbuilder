@@ -45,10 +45,10 @@ INSERT INTO city (`name`, `country`) VALUES
 -- --------------------------------------------------------
 -- Trips
 -- --------------------------------------------------------
-INSERT INTO trip (`name`) VALUES (
-    'Vacation in Paris', 
-    'Trip to the Valley'
-);
+INSERT INTO trip (`name`) VALUES
+    ('Vacation in Paris'), 
+    ('Trip to the Valley')
+;
 
 -- --------------------------------------------------------
 -- Flights
