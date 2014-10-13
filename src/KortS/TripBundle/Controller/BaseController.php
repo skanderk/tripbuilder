@@ -36,7 +36,7 @@ class BaseController extends Controller
     protected function assertIsPositiveInteger($value, $name)
     {
         if (false == ctype_digit($value) || $value == 0) {
-            throw new \InvalidArgumenException(sprintf("%s has to be a positive integer", $name));
+            throw new \InvalidArgumentException(sprintf("%s has to be a positive integer", $name));
         }
     }
 }

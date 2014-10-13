@@ -1,7 +1,3 @@
-sk_trip_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: KortSTripBundle:Default:index }
-
 sk_trip_list:
     path:     /airport/list
     defaults: { _controller: KortSTripBundle:Airport:list, _format: json}
