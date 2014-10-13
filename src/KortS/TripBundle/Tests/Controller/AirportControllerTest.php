@@ -2,23 +2,10 @@
 
 namespace KortS\TripBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use KortS\TripBundle\Tests\ApiTestCase;
 
-class AirportControllerTest extends WebTestCase
+class AirportControllerTest extends ApiTestCase
 {
-    /**
-     *
-     * @var Symfony\Bundle\FrameworkBundle\Client 
-     */
-    private $client;
-    
-    public function setUp()
-    {
-        parent::setUp();
-        
-        $this->client = static::createClient();
-    }
-
 
     /**
      * ListAction() returns an OK status and the correct number of airports.
@@ -81,20 +68,4 @@ class AirportControllerTest extends WebTestCase
         // Validate
         $this->assertEquals('ERROR', $response->status);
     }
-
-        
-    /**
-     * Send a request to server and decode the Json response.
-     * 
-     * @param string $url
-     * @return StdClass
-     */
-    protected function request($url)
-    {
-        $this->client->request('GET', $url);
-        $json = $this->client->getResponse()->getContent();
-        
-        return json_decode($json);
-    }
-
 }
