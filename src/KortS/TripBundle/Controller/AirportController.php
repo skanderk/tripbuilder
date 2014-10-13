@@ -41,8 +41,6 @@ class AirportController extends BaseController
         
             return $this->listActionResponse();
         } catch (\Exception $e) { // Log exception and return an error response
-            $this->get('logger')->warn($e->getMessage());
-            
             return $this->buildErrorResponse($e);
         }
     }

@@ -23,6 +23,8 @@ class BaseController extends Controller
         $response = array('status' => 'ERROR');
         $response['message'] = ($e instanceof \InvalidArgumentException) ? $e->getMessage() : 'Internal error';
         
+        $this->get('logger')->warn((string)$e);
+        
         return new JsonResponse($response);
     }
     
